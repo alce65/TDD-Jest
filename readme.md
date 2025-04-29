@@ -82,3 +82,40 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
   - Ejemplo en React: Componente de búsqueda con API.
   - Ejemplo en Angular: Gestión de listas dinámicas.
 - Revisión de buenas prácticas y discusión de resultados.
+
+## Desarrollo del curso
+
+### Día 1
+
+- INTRODUCCIÓN: Tests unitarios y TDD
+  - Conceptos básicos del Test-Driven Development (TDD).
+  - Ciclo TDD: Escribir un test que falle, implementar el código mínimo, refactorizar.
+  - Beneficios del TDD en proyectos modernos.
+  - Comparativa con metodologías tradicionales.
+- HERRAMIENTAS IMPRESCINDIBLES PARA TDD
+  - Jest
+    - Instalación y configuración inicial para React y Angular.
+    - Estructura básica de un test en Jest.
+    - Ejecución y reporte de pruebas.
+    - Configuración inicial en React y Angular.
+
+### Día2
+
+- Escribir tests básicos para funciones puras
+  - Refactorización de los tests
+  - Refactorización del código: reducción de la complejidad ciclomática
+- Lógica de negocio: servicios en React
+  - Mocking de módulos y funciones globales (fetch).
+  - Ejemplo práctico: Mocking de un servicio REST.
+
+### Día 3
+
+- Lógica de negocio: servicios en React (continuación)
+  - Mocking de módulos y funciones globales (fetch)
+  - Ejemplo práctico: Mocking de un servicio REST
+    - método gatWithAxios: mockear el módulo axios
+    - método getUser (with fetch): mockear el módulo fetch
+    - gestión de errores unificada: clase HttpError
+    - método createUser (with fetch): aplicar TDD
+- Servicios en Angular
+  - Inyección de dependencias y entorno de testing.
