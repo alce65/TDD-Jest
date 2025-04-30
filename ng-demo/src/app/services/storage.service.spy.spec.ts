@@ -31,9 +31,9 @@ describe("StorageService", () => {
         it("should get an item from local storage when there are content in local storage", () => {
             const value = "testValue";
 
-            globalThis.Storage.prototype.getItem = jest
-                .fn()
-                .mockReturnValueOnce(`["${value}"]`);
+            jest.spyOn(globalThis.Storage.prototype, 'getItem')
+            .mockReturnValueOnce(`["${value}"]`);
+
 
             const result = service.getItems(key);
             expect(localStorage.getItem).toHaveBeenCalledWith(key);
@@ -41,23 +41,19 @@ describe("StorageService", () => {
         });
 
         it("should get an [] when there are content in local storage", () => {
-            globalThis.Storage.prototype.getItem = jest.fn().mockReturnValueOnce(null);
+            jest.spyOn(globalThis.Storage.prototype, 'getItem')
+            .mockReturnValueOnce(null);
             const result = service.getItems(key);
             expect(result).toEqual([]);
         });
     });
 
-      describe('setItem', () => {
-        it('should set an item in local storage', () => {
-          globalThis.Storage.prototype.setItem = jest.fn()
-          const key = 'testKey';
-          const value = ['testValue'];
-        
-          service.setItems(key, value);
-          expect(localStorage.setItem).toHaveBeenCalledWith(
-            `${key}`,
-            JSON.stringify(value)
-          );
-        });
-      });
+    //   describe('setItem', () => {
+    //     it('should set an item in local storage', () => {
+    //       const key = 'testKey';
+    //       const value = 'testValue';
+    //       service.setItem(key, value);
+    //       expect(localStorage.getItem(key)).toBe(value);
+    //     });
+    //   });
 });

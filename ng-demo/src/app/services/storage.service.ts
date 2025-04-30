@@ -1,22 +1,33 @@
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-import { Injectable } from '@angular/core';
-
-
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-type item = {}
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: "root",
 })
-export class StorageService {
+export class StorageService<T> {
 
-    getItems(key: string): item[] {
-
+    getItems(key: string): T[] {
         const value = localStorage.getItem(key);
         if (value === null) {
-            return []
+            return [];
         }
-        return JSON.parse(value) ;
+        return JSON.parse(value!);
     }
 
+    setItems(key: string, value: T[]): void {
+        const data = JSON.stringify(value);
+        localStorage.setItem(key, data);
+    }
+
+    getItem(key: string): T {
+        const value = localStorage.getItem(key);
+        if (value === null) {
+            return {} as T;
+        }
+        return JSON.parse(value!);
+    }
+
+    setItem(key: string, value: T): void {
+        const data = JSON.stringify(value);
+        localStorage.setItem(key, data);
+    }
 }
