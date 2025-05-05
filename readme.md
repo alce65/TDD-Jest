@@ -85,7 +85,7 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
 
 ## Desarrollo del curso
 
-### Día 1
+### Día 1 (M 22/04)
 
 - INTRODUCCIÓN: Tests unitarios y TDD
   - Conceptos básicos del Test-Driven Development (TDD).
@@ -99,16 +99,27 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
     - Ejecución y reporte de pruebas.
     - Configuración inicial en React y Angular.
 
-### Día2
+### Día 2 (X 23/04)
 
 - Escribir tests básicos para funciones puras
+
   - Refactorización de los tests
   - Refactorización del código: reducción de la complejidad ciclomática
+
+- MOCKING Y SIMULACIONES
+
+  - Uso de mocks en Jest para simular dependencias:
+    - Servicios y módulos en React y Angular.
+  - Pruebas de interacciones con APIs o servicios externos.
+  - Ejemplo práctico: Mocking de un servicio REST.
+
 - Lógica de negocio: servicios en React
   - Mocking de módulos y funciones globales (fetch).
   - Ejemplo práctico: Mocking de un servicio REST.
 
-### Día 3
+### Dia 3 (L 28/04) // Clase suspendida por motivos técnicos
+
+### Día 3 (M 29/04)
 
 - Lógica de negocio: servicios en React (continuación)
   - Mocking de módulos y funciones globales (fetch)
@@ -119,3 +130,36 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
     - método createUser (with fetch): aplicar TDD
 - Servicios en Angular
   - Inyección de dependencias y entorno de testing.
+  - Ejemplo práctico: Storage Service y LocalStorage (1).
+
+### Día 4 (X 30/04)
+
+- Servicios en Angular (continuación)
+  - Ejemplo práctico: Storage Service y LocalStorage (2).
+- Dependencias entre servicios
+  - Ejemplo práctico: State Service y Storage Service.
+
+### Día 5 (L 05/05)
+
+- Servicios en Angular (continuación)
+  - Ejemplo práctico: Repo Service y HTTP Client.
+
+---
+
+- Testing Library
+
+  - Introducción a React Testing Library y Angular Testing Tools.
+  - Testing centrado en la experiencia del usuario.
+  - Instalación y configuración básica.
+
+- TESTING DE COMPONENTES CON TESTING LIBRARY
+
+  - Principios de pruebas basadas en el DOM.
+  - Testing de renderizado y props en React y Angular.
+  - Interacción con eventos del usuario (clics, cambios, etc.).
+  - Ejemplo práctico: Componente de formulario básico.
+
+- TESTING DE COMPONENTES EN ANGULAR
+  - Testing de componentes en Angular.
+  - Testing de formularios en Angular.
+  - Ejemplo práctico: Componente de formulario básico.
