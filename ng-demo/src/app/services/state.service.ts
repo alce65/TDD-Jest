@@ -7,7 +7,7 @@ import { StorageService } from "./storage.service";
     providedIn: "root",
 })
 export class StateService {
-    private storage = inject(StorageService<string>);
+    private storage = inject(StorageService<State>);
     private _state = new BehaviorSubject<State>({
         token: null,
     });
@@ -15,11 +15,7 @@ export class StateService {
     //constructor(public s: StorageService<string>) { }
 
     getState(): Observable<State> {
-        const storageValue = this.storage.getItem("token") || null;
-
-        const state: State = {
-            token: storageValue.token,
-        };
+        const state = this.storage.getItem("state") as State;
         this._state.next(state);
         return this._state.asObservable();
     }

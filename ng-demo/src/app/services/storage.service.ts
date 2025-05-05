@@ -4,7 +4,6 @@ import { Injectable } from "@angular/core";
     providedIn: "root",
 })
 export class StorageService<T> {
-
     getItems(key: string): T[] {
         const value = localStorage.getItem(key);
         if (value === null) {
@@ -23,7 +22,7 @@ export class StorageService<T> {
         if (value === null) {
             return {} as T;
         }
-        return JSON.parse(value!);
+        return JSON.parse(value);
     }
 
     setItem(key: string, value: T): void {
