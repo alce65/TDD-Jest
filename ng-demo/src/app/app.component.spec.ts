@@ -1,29 +1,40 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { AppComponent } from "./app.component";
+import { By } from "@angular/platform-browser";
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
-  });
+describe("AppComponent", () => {
+    let fixture: ComponentFixture<AppComponent>;
+    let component: AppComponent;
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [AppComponent],
+            providers: [],
+        }).compileComponents();
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    it("should create the app", () => {
+        expect(component).toBeTruthy();
+        expect(component).toBeInstanceOf(AppComponent);
+    });
 
-  it(`should have the 'ng-demo' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-demo');
-  });
+    // Test de implementación (caja blanca)
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('ng-demo');
-  });
+    it(`should have the 'ng-demo' title`, () => {
+        expect(component.title).toEqual("ng-demo");
+    });
+
+    // Test de comportamiento (caja negra)
+
+    it("should render title", () => {
+        // const rendered = fixture.nativeElement as HTMLElement;
+        // expect(rendered.querySelector("h1")?.textContent).toContain("ng-demo");
+
+        const debugElement = fixture.debugElement;
+        const eHeader = debugElement.query(By.css("h1"))
+            .nativeElement as HTMLElement;
+        expect(eHeader.textContent).toContain("Welcome to ng-demo!");
+    });
 });

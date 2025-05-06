@@ -8,15 +8,14 @@ import {
 } from "@angular/common/http/testing";
 import { environment } from "../../environments/environment";
 
-jest.mock("../../environments/environment", () => ({
-    environment: {
-        api_users_url: "https://jsonplaceholder.typicode.com/users",
-    },
-}));
+// jest.mock("../../environments/environment", () => ({
+//     environment: {
+//         api_users_url: "https://jsonplaceholder.typicode.com/users",
+//     },
+// }));
 
 
 /*
-
 Preparación del entorno de pruebas para un servicio que depende de HttpClient.
 
 1. TestBed.configureTestingModule({
