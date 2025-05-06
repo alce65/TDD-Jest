@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'cas-root',
@@ -13,4 +14,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'ng-demo';
+    constructor() {
+        console.log('AppComponent constructor');
+        console.log('environment.api_users_url', environment.api_users_url);
+    }
 }
