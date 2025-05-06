@@ -142,20 +142,27 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
 ### Día 5 (L 05/05)
 
 - Servicios en Angular (continuación)
-  - Ejemplo práctico: Repo Service y HTTP Client.
 
----
+  - Ejemplo práctico: Repo Service y HTTP Client.
+    - Uso de environment variables en Angular (Problema con jest)
+    - HTTP Client Mocking
 
 - Testing Library
 
   - Introducción a React Testing Library y Angular Testing Tools.
   - Testing centrado en la experiencia del usuario.
   - Instalación y configuración básica.
+  - Ejemplo práctico: jsdom y testing library en Vanilla JS.
 
 - TESTING DE COMPONENTES CON TESTING LIBRARY
 
   - Principios de pruebas basadas en el DOM.
-  - Testing de renderizado y props en React y Angular.
+  - Testing de renderizado y props en React.
+
+### Día 6 (M 06/05)
+
+- TESTING DE COMPONENTES CON TESTING LIBRARY (continuación)
+
   - Interacción con eventos del usuario (clics, cambios, etc.).
   - Ejemplo práctico: Componente de formulario básico.
 
