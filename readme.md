@@ -147,7 +147,7 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
     - Uso de environment variables en Angular (Problema con jest)
     - HTTP Client Mocking
 
-- Testing Library
+- jsdom & Testing Library
 
   - Introducción a React Testing Library y Angular Testing Tools.
   - Testing centrado en la experiencia del usuario.
@@ -164,9 +164,22 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
 - TESTING DE COMPONENTES CON TESTING LIBRARY (continuación)
 
   - Interacción con eventos del usuario (clics, cambios, etc.).
-  - Ejemplo práctico: Componente de formulario básico.
+  - Ejemplo práctico: Componente counter.
 
 - TESTING DE COMPONENTES EN ANGULAR
   - Testing de componentes en Angular.
+  - Elementos de Angular Testing Tools. Comportamiento v. implementación
+  - Ejemplo práctico: Componente counter.
+  - Comunicación entre componentes: Input y Output.
+  - Ejemplo práctico: Componentes NotaItem y NotaList.
+
+### Día 7 (X 07/05)
+
+- TESTING DE COMPONENTES EN ANGULAR (continuación)
+
+  - Comunicación entre componentes: Input y Output.
   - Testing de formularios en Angular.
   - Ejemplo práctico: Componente de formulario básico.
+
+- TESTING DE COMPONENTES CON TESTING LIBRARY (continuación)
+- - Ejemplo práctico: Componente de formulario básico.
