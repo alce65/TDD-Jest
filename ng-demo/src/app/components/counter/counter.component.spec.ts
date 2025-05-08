@@ -39,15 +39,26 @@ describe("CounterComponent", () => {
 
     it("should increment count when button is clicked", () => {
         const rendered = fixture.nativeElement as HTMLElement;
+     
+        // Alternativa 1 para lanzar un ewento click
         // const button = rendered.querySelector("button") as HTMLButtonElement;
         // button.click()
          
+        // Alternativa 2 para lanzar un ewento click
+        // const debugButton = fixture.debugElement.query(By.css("button"));
+        // debugButton.triggerEventHandler("click");
+        
+        // Alternativa 3 para lanzar un ewento click
         const debugButton = fixture.debugElement.query(By.css("button"));
+        const eButton = debugButton.nativeElement as HTMLButtonElement
+        eButton.dispatchEvent(new Event("click"));
+        
         // const button = debugButton.nativeElement as HTMLButtonElement;
-        debugButton.triggerEventHandler("click");
+        
         // No suele ser buena practica ejecutar 
         // directamente los métodos
         // component.handleClick();
+
         fixture.detectChanges();
         expect(component.count).toBe(1);
         expect(rendered.querySelector("h2")?.textContent).toContain("1");
