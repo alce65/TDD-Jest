@@ -3,10 +3,10 @@ import "@testing-library/jest-dom";
 import { render } from "./render";
 
 describe("function render", () => {
-    // beforeEach(() => {
-    //     document.body.innerHTML = "";
-    // });
-    test.skip("should insert HTML into the body (test with DOM)", () => {
+    beforeEach(() => {
+        document.body.innerHTML = "";
+    });
+    test("should insert HTML into the body (test with DOM)", () => {
         // Act
         render();
         // Assert
@@ -21,11 +21,11 @@ describe("function render", () => {
         expect(pElement).toBeInTheDocument();
     });
 
-    // test("should not insert any if the selector is invalid", () => {
-    //     // Act
-    //     render("invalid-selector");
-    //     // Assert
-    //     const pElement = screen.queryByText("Sample");
-    //     expect(pElement).toBe(null);
-    // });
+    test("should not insert any if the selector is invalid", () => {
+        // Act
+        render("invalid-selector");
+        // Assert
+        const pElement = screen.queryByText("Sample");
+        expect(pElement).toBe(null);
+    });
 });
