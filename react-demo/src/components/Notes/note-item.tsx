@@ -1,12 +1,16 @@
+import { useContext } from "react";
 import { Note } from "../../types/note";
+import { AppContext } from "../../context/app.context";
 
 type Props = {
     note: Note;
-    deleteNote: (id: string) => void;
-    updateNote: (note: Note) => void;
 };
 
-export function NoteItem({ note, deleteNote, updateNote }: Props) {
+export function NoteItem({ note }: Props) {
+    const {
+        notesContext: { deleteNote, updateNote },
+    } = useContext(AppContext);
+
     const handleDelete = () => {
         console.log("Eliminar nota", note.id);
         deleteNote(note.id);
@@ -23,7 +27,9 @@ export function NoteItem({ note, deleteNote, updateNote }: Props) {
             <h2>{note.title}</h2>
             <p>{note.content}</p>
             <p>
-                <input type="checkbox" checked={note.isImportant} 
+                <input
+                    type="checkbox"
+                    checked={note.isImportant}
                     onChange={handleChange}
                 />{" "}
                 {note.isImportant ? "Importante" : "No importante"}

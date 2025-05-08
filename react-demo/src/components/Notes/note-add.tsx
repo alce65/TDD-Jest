@@ -1,11 +1,12 @@
-import { SyntheticEvent } from "react";
+import { SyntheticEvent, useContext } from "react";
 import { DTONote } from "../../types/note";
+import { AppContext } from "../../context/app.context";
 
-type Props = {
-    add: (note: DTONote) => void;
-};
+export function NoteAdd() {
+    const {
+        notesContext: { addNote },
+    } = useContext(AppContext);
 
-export function NoteAdd({ add }: Props) {
     const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         const form = ev.target as HTMLFormElement;
@@ -18,7 +19,7 @@ export function NoteAdd({ add }: Props) {
         };
 
         console.log(newNote);
-        add(newNote);
+        addNote(newNote);
     };
 
     return (

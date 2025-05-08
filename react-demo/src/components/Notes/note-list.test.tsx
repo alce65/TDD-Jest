@@ -1,7 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import type { Note } from "../../types/note";
 import { NoteList } from "./note-list";
+import { AppContext, AppContextStructure } from "../../context/app.context";
+
+jest.mock("../../services/repo.notes");
 
 describe("NoteList", () => {
     const notes: Note[] = [
@@ -13,9 +16,22 @@ describe("NoteList", () => {
         },
     ];
 
+    const context: AppContextStructure = {
+        notesContext: {
+            notes,
+            loadNotes: jest.fn(),
+        },
+    } as unknown as AppContextStructure;
+
     describe("render", () => {
-        beforeEach(() => {
-            render(<NoteList initialNotes={notes} />);
+        beforeEach(async () => {
+            await act(async () => {
+                render(
+                    <AppContext.Provider value={context}>
+                        <NoteList />
+                    </AppContext.Provider>
+                );
+            });
         });
 
         it("should render the note list correctly", () => {
@@ -24,9 +40,9 @@ describe("NoteList", () => {
             expect(screen.getByText("Nota 1")).toBeInTheDocument();
         });
 
-    it('should render addNote component', () => { 
-        const addNote = screen.getByText("Añadir nota");
-        expect(addNote).toBeInTheDocument();
-     })
+        it("should render addNote component", () => {
+            const addNote = screen.getByText("Añadir nota");
+            expect(addNote).toBeInTheDocument();
+        });
     });
 });

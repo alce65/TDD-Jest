@@ -2,27 +2,30 @@ import { render, RenderResult, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { NoteItem } from "./note-item";
+import { AppContext, AppContextStructure } from "../../context/app.context";
+
+const note = {
+    id: "1",
+    title: "Nota 1",
+    content: "Contenido de la nota 1",
+    isImportant: false,
+};
+
+const context: AppContextStructure = {
+    notesContext: {
+        deleteNote: jest.fn(),
+        updateNote: jest.fn(),
+    },
+} as unknown as AppContextStructure;
 
 describe("NoteItem with note not important", () => {
-    const note = {
-        id: "1",
-        title: "Nota 1",
-        content: "Contenido de la nota 1",
-        isImportant: false,
-    };
-
-    const deleteNote = jest.fn();
-    const updateNote = jest.fn();
-
     let r: RenderResult;
 
     beforeEach(() => {
         r = render(
-            <NoteItem
-                note={note}
-                deleteNote={deleteNote}
-                updateNote={updateNote}
-            />
+            <AppContext.Provider value={context}>
+                <NoteItem note={note} />
+            </AppContext.Provider>
         );
     });
 
@@ -36,41 +39,29 @@ describe("NoteItem with note not important", () => {
         const deleteButton = screen.getByText("Eliminar");
         deleteButton.click();
 
-        expect(deleteNote).toHaveBeenCalledWith(note.id);
+        expect(context.notesContext.deleteNote).toHaveBeenCalledWith(note.id);
     });
 
     it("should call updateNote when the checkbox is clicked", async () => {
         const checkbox = screen.getByRole("checkbox");
         await userEvent.click(checkbox);
 
-        expect(updateNote).toHaveBeenCalledWith({
+        expect(context.notesContext.updateNote).toHaveBeenCalledWith({
             ...note,
             isImportant: true,
         });
     });
 });
 
-
 describe("NoteItem with note important", () => {
-    const note = {
-        id: "1",
-        title: "Nota 1",
-        content: "Contenido de la nota 1",
-        isImportant: true,
-    };
-
-    const deleteNote = jest.fn();
-    const updateNote = jest.fn();
-
     let r: RenderResult;
 
     beforeEach(() => {
+        note.isImportant = true; // Set the note to be important
         r = render(
-            <NoteItem
-                note={note}
-                deleteNote={deleteNote}
-                updateNote={updateNote}
-            />
+            <AppContext.Provider value={context}>
+                <NoteItem note={note} />
+            </AppContext.Provider>
         );
     });
 

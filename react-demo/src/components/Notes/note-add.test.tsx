@@ -3,10 +3,16 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { DTONote } from "../../types/note";
 import { NoteAdd } from "./note-add";
+import { AppContext, AppContextStructure } from "../../context/app.context";
+
+const context: AppContextStructure = {
+    notesContext: {
+        addNote: jest.fn(),
+    },
+} as unknown as AppContextStructure;
 
 describe("Given the component Add", () => {
     describe("When we render it", () => {
-        const addNoteMock = jest.fn();
         const mockNote: DTONote = {
             title: "Test title",
             content: "Test content",
@@ -14,7 +20,11 @@ describe("Given the component Add", () => {
         };
 
         beforeEach(() => {
-            render(<NoteAdd add={addNoteMock}></NoteAdd>);
+            render(
+                <AppContext.Provider value={context}>
+                    <NoteAdd></NoteAdd>
+                </AppContext.Provider>
+            );
         });
 
         test("The component should be in the document", async () => {
@@ -31,7 +41,7 @@ describe("Given the component Add", () => {
             expect(inputElements[1]).toHaveValue(mockNote.content);
 
             await fireEvent.submit(formElement);
-            expect(addNoteMock).toHaveBeenCalledWith(mockNote);
+            expect(context.notesContext.addNote).toHaveBeenCalledWith(mockNote);
         });
     });
 });
