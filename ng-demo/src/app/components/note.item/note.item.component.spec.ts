@@ -66,4 +66,26 @@ describe("NoteItemComponent", () => {
             component.note
         );
     });
+
+    it('should send update event when checkbox change"', () => {
+        
+        jest.spyOn(component.updateNoteEvent, "emit");
+        component.note.isImportant = true;
+        fixture.detectChanges();
+        
+        const checkbox = fixture.nativeElement.querySelector(
+            'input[type="checkbox"]'
+        ) as HTMLInputElement;
+        expect(checkbox).toBeTruthy();
+        expect(checkbox.checked).toBe(true);
+        checkbox.checked = false;
+        checkbox.dispatchEvent(new Event("change"));
+        
+        fixture.detectChanges();
+        expect(component.note.isImportant).toBe(false);
+        expect(component.updateNoteEvent.emit).toHaveBeenCalledWith({
+            ...component.note,
+            isImportant: false,
+        });
+    })
 });
