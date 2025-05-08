@@ -1,7 +1,7 @@
 import { add, divide } from "./sample";
 
 describe("Given sample.ts file", () => {
-    describe.skip("When we use add function", () => {
+    describe("When we use add function", () => {
         test("Then it should result 3 if we sum 1 and 2", () => {
             // Arrange
             const a = 1;

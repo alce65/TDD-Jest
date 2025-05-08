@@ -169,17 +169,37 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
 - TESTING DE COMPONENTES EN ANGULAR
   - Testing de componentes en Angular.
   - Elementos de Angular Testing Tools. Comportamiento v. implementación
-  - Ejemplo práctico: Componente counter.
+    - Ejemplo práctico: Componente counter.
+    - Eventos: opciones para simular eventos de usuario.
   - Comunicación entre componentes: Input y Output.
-  - Ejemplo práctico: Componentes NotaItem y NotaList.
+    - Ejemplo práctico: Componentes NotaItem y NotaList.
 
 ### Día 7 (X 07/05)
 
 - TESTING DE COMPONENTES EN ANGULAR (continuación)
 
   - Comunicación entre componentes: Input y Output.
+    - Ejemplo práctico: Componentes NotaItem y NotaList (continuación).
+    - Test de eventos emitidos desde el componente hijo.
   - Testing de formularios en Angular.
-  - Ejemplo práctico: Componente de formulario básico.
+    - Ejemplo práctico: Componente NotaAdd: formulario reactivo.
+    - Eventos input: simulación de eventos de usuario.
+
+### Día 8 (J 07/05)
+
+- Review proyectos: parámetros --coverage y --verbose
+
+  - Angular
+  - Vanilla + React: corrección del test del render en vanilla TS
+    - Estado previo a los tests y corner cases
 
 - TESTING DE COMPONENTES CON TESTING LIBRARY (continuación)
-- - Ejemplo práctico: Componente de formulario básico.
+
+  - Ejemplo práctico: Componente de formulario básico.
+
+- MOCKING Y SIMULACIONES
+
+  - Ejemplo práctico: Mocking de un servicio REST.
+
+- TDD EN APLICACIONES MÁS COMPLEJAS
+  - Escribir tests para lógica de estado: Redux en React.
