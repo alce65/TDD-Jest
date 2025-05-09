@@ -1,5 +1,8 @@
 # Desarrollo con TDD para React y Angular
 
+Alejandro Cerezo Lasne
+<alce65@hotmail.es>
+
 ## DESCRIPCIÓN
 
 En este curso se enseñará a desarrollar aplicaciones con React y Angular siguiendo la metodología Test-Driven Development (TDD). Se abordará cómo escribir pruebas antes de desarrollar el código, garantizando implementaciones más robustas, mantenibles y adaptables. Utilizando herramientas como Jest y Testing Library, se dominará el ciclo del TDD, aplicando buenas prácticas en la construcción de componentes, lógica de negocio y pruebas de integración.
@@ -195,11 +198,23 @@ El curso está diseñado con un enfoque práctico, permitiendo trabajar en proye
 
 - TESTING DE COMPONENTES CON TESTING LIBRARY (continuación)
 
-  - Ejemplo práctico: Componente de formulario básico.
+  - Comunicación entre componentes: Input y Output.
+    - Ejemplo práctico: Componentes NotaItem y NotaList.
+    - Ejemplo práctico: Componente de formulario básico NotaAdd.
 
 - MOCKING Y SIMULACIONES
 
   - Ejemplo práctico: Mocking de un servicio REST.
 
+- REFACTORIZACIÓN IMPULSADA POR TDD
+
+- Mejora continua del código durante el ciclo TDD.
+- Refactorización de un conjunto de componente abstrayendo la lógica compleja
+  - Ejemplo práctico: incorporación de contexto y custom hook a la feature de Notas
+
+### Extra
+
+Entrega en el repositorio de GitHub
+
 - TDD EN APLICACIONES MÁS COMPLEJAS
-  - Escribir tests para lógica de estado: Redux en React.
+  - Escribir tests para lógica de estado: Reducer en React.
